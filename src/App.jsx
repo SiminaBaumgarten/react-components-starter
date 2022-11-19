@@ -1,50 +1,34 @@
 import "./App.css";
+import Header from "./components/header";
+import Form from "./components/form";
+import List from "./components/list";
+import { useEffect } from "react";
+import React, { useState } from "react";
+
 
 function App() {
+  const [cardList, setCardList] = useState([]);
+  console.log(cardList);
+  // if (!cardList.length) {
+  //   return <span>loading</span>;
+  // }
+
+  // useEffect(() => {
+  //   fetch("https://api.github.com/search/repositories?q=stars:>10000")
+  //   .then(
+  //     (res) => res.json()
+  //   )
+  //   .then((data) => setCardList(data.items));
+  // }, []);
+
   return (
     <>
-      <header>
-        <div className="content-wrapper">
-          <h1>Welcome to the JSHeroes Bootcamp!</h1>
-        </div>
-        <img className="bear" src="/js-heroes-bear.png" />
-      </header>
-
-      <main>
-        <form className="search-form">
-          <input className="input" />
-          <button className="button">Search</button>
-        </form>
-
-        <ul className="repo-cards">
-          <li className="repo-card">
-            <span className="title">facebook/react</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
-
-          <li className="repo-card">
-            <span className="title">vuejs/vue</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
-
-          <li className="repo-card">
-            <span className="title">sveltejs/svelte</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
-        </ul>
-      </main>
+      <Header />
+      {/* <main>
+        <Form />
+        {cardList.length === 0 ? <span>Loading</span> : <List />}
+        <List data={data} />
+      </main> */}
     </>
   );
 }
